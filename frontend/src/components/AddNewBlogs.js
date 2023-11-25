@@ -1,10 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
-import { UserContext } from "../UserContext";
+import React, {  useState } from "react";
 import { RxCross2 } from "react-icons/rx";
-import { LuUpload } from "react-icons/lu";
 import axios from "axios";
-import { useLocation, useNavigate } from "react-router-dom";
-import Navbar from "./Navbar";
+import {useNavigate } from "react-router-dom";
 
 
 const AddNewBlogs = () => {
@@ -95,7 +92,7 @@ navigate('/')
           <div className="flex flex-col">
             <span>Upload photo </span>
             <input type="file" name="file" onChange={handleImageChange} />
-            {image==""|| image===null ? "":
+            {image===""|| image===null ? "":
   <img width={100} height={100} src={image} />
 }
 

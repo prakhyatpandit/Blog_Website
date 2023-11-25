@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import NewBlog from "../components/NewBlog";
 import AddNewBlogs from "../components/AddNewBlogs";
 
 const AddBlogs = () => {

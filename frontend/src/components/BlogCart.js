@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
-import { CiUser } from "react-icons/ci";
+import React, { useEffect, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { FaHeart } from "react-icons/fa";
 import { BsFillHandThumbsDownFill } from "react-icons/bs";
@@ -8,9 +7,7 @@ import { MdModeEdit } from "react-icons/md";
 import { AiFillDelete } from "react-icons/ai";
 
 import { FaRegUser } from "react-icons/fa6";
-import { UserContext } from "../UserContext";
 import { useNavigate } from "react-router-dom";
-import OneBlog from "../pages/OneBlog";
 import axios from "axios";
 
 const BlogCart = () => {

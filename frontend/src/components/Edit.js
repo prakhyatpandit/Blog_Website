@@ -1,16 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
-import { UserContext } from "../UserContext";
+import React, {  useEffect, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
-import { LuUpload } from "react-icons/lu";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
 
 const Edit = () => {
   const location = useLocation();
   const data = location.state;
   const id = data._id
-  const { blogDocs, setBlogDocs } = useContext(UserContext);
 
   const navigate = useNavigate();
 

@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { UserContext } from "../UserContext";
+import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import axios from "axios";

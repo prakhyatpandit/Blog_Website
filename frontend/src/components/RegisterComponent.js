@@ -1,54 +1,42 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-
-import axios from 'axios'
+import axios from "axios";
 
 const Login = () => {
   //   const{setUser}=useContext(UserContext)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!email || !name || !password) {
+      alert(" Input fields cannot be empty ");
+    } else {
+      try {
+        await axios.post("http://localhost:8000/register", {
+          email,
+          password,
+          name,
+        });
 
-    if(!email || !name || !password ){
+        alert("Register Done");
 
-      alert(" Input fields cannot be empty ")
-    }
-    else{
-
-      
-      try{
-        
-        await axios.post('http://localhost:8000/register',{
-          email,password,name
-          
-        })
-        
-        alert("Register Done")
-
-  navigate('/')
-
-      
-
-      }
-      catch(error){
-
+        navigate("/");
+      } catch (error) {
         setEmail("");
         setPassword("");
         setName("");
-    
-        alert("Already Used email")}
-        
-      };
-      
+
+        alert("Already Used email");
+      }
     }
-      return (
-        <>
+  };
+  return (
+    <>
       <div className=" h-screen  justify-center flex ">
         <div className="  w-[50rem]  h-auto text-xl ">
           <div className=" w-full mt-[3rem]">
@@ -75,8 +63,6 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-
-         
 
               <input
                 type="password"
