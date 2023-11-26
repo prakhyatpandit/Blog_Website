@@ -109,7 +109,7 @@ const AddNewBlogs = () => {
             onChange={(e) => setHeader(e.target.value)}
           />
           <textarea
-            className="border outline-none min-h-[4rem] mt-[0.5rem] p-[0.2rem] px-[1rem] border-gray-400 rounded-md "
+            className="border outline-none min-h-[10rem]  p-1  border-gray-400 rounded-md "
             placeholder="Write about the blog....."
             value={detail}
             onChange={(e) => setDetail(e.target.value)}

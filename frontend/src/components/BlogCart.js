@@ -120,7 +120,7 @@ const BlogCart = () => {
               </h1>
               {/* read more Section */}
 
-              <div className="flex  gap-1 items-center text-gray-800 underline mt-2 hover:text-black cursor-pointer ">
+              <div className="flex  gap-1 items-center text-gray-600 underline mt-2 text-md mb-[0.2rem] hover:text-black cursor-pointer ">
                 <button onClick={() => handleReadMore(items)}>
                   Read More{" "}
                 </button>
