@@ -1,12 +1,11 @@
-import mongoose from "mongoose";
+import mongoose  from "mongoose";
 
-export default function db() {
-    try{
+export function  db(){
 
-        mongoose.connect("mongodb://localhost:27017")
-    }
-    catch(error){
-        console.log(error)
+    try {
+        mongoose.connect("mongodb+srv://blog:blog@cluster0.1bxrunm.mongodb.net/");
+        console.log("Database connected successfully");
+    } catch (error) {
+        console.error("Error in DB connection", error);
     }
 }
-
