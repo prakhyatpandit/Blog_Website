@@ -18,6 +18,7 @@ const BlogCart = () => {
   // For accessing the blogs
   const [cartData, setcartData] = useState([]);
   const { user, setUser } = useContext(UserContext);
+  const [show,hide] =useState(user)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -72,7 +73,7 @@ const BlogCart = () => {
   return (
     <>
       <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2   gap-[3rem] mt-[1rem]   ">
-        {cartData.reverse().map((items, index) => (
+        {cartData.map((items, index) => (
           <div
             key={index}
             className="flex flex-col border border-gray-400  shadow-gray-400 shadow-md rounded-md  w-[19rem] sm:w-[23rem] justify-between "
@@ -91,8 +92,14 @@ const BlogCart = () => {
               <div className="flex px-[0.2rem]  mt-1">
                 <div className="flex gap-2   items-center ">
                   <FaRegUser size={13} className="" />
-                  Anonymous
-                  <span>{user}</span>
+                  
+
+
+
+{show? <h1 className="text-sm ">
+{user}
+</h1> :   <h1> Anonymous
+  </h1>}                  
                 </div>
               </div>
               {/* {console.log(items.detail)} */}

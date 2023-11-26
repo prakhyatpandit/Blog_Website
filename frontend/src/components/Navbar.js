@@ -19,7 +19,7 @@ const Navbar = () => {
         {/* LOGO */}
         {/* <div className='font-bold'> DAILY BLOGS </div> */}
         {/* About Section */}
-        <div className="font-bold hover:cursor-pointer" onClick={handleLogo}>
+        <div className="font-bold hover:cursor-pointer hover:text-green-500 underline uppercase" onClick={handleLogo}>
           {" "}
           Blogs
         </div>

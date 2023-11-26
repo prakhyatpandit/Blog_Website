@@ -58,7 +58,7 @@ const Login = () => {
               <input
                 type="name"
                 placeholder="Name"
-                className="border p-2 rounded-md px-3 "
+                className="border p-1 rounded-md px-3 "
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -66,7 +66,7 @@ const Login = () => {
               <input
                 type="email"
                 placeholder="Email"
-                className="border p-2 rounded-md px-3 "
+                className="border p-1 rounded-md px-3 "
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -74,12 +74,12 @@ const Login = () => {
               <input
                 type="password"
                 placeholder="Password"
-                className="border p-2 rounded-md px-3 "
+                className="border p-1 rounded-md px-3 "
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
 
-              <button className="border p-2 bg-green-500 rounded-md px-3 ">
+              <button className="border p-1 bg-green-500 rounded-md px-3 ">
                 Register
               </button>
               <span>

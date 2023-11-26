@@ -7,7 +7,7 @@ export function UserContextProvider({ children }) {
 
   // For Logged in User 
   const [user, setUser] = useState([]);
-  const [blogDocs, setBlogDocs] = useState([]);
+  const [blogDocs, setBlogDocs] = useState();
 
   // for one particular blogs
   const [oneBlog, setOneBlog] = useState(null);

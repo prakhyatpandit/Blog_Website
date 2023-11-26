@@ -25,6 +25,7 @@ const Login = () => {
       const userInfo = response.data.name;
 
       setUser(userInfo);
+      
       alert("Login successfully");
       navigate("/");
       // console.log(userInfo.data.name)
@@ -43,7 +44,7 @@ const Login = () => {
   return (
     <>
       <div className=" h-screen  mt-[5rem] justify-center flex ">
-        <div className="  w-[50rem]  h-auto text-xl ">
+        <div className="  w-[50rem]  h-auto text-xl  -mt-[3rem] ">
           <div className=" w-full mt-[3rem]">
             <div className="flex justify-end mt-[1rem] mx-[1rem]">
               <button onClick={onCrusor}>
@@ -59,7 +60,7 @@ const Login = () => {
               <input
                 type="email"
                 placeholder="Email or Phone"
-                className="border p-2 rounded-md px-3 "
+                className="border p-1 rounded-md px-3 "
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -67,12 +68,12 @@ const Login = () => {
               <input
                 type="password"
                 placeholder="Password"
-                className="border p-2 rounded-md px-3 "
+                className="border p-1 rounded-md px-3 "
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
 
-              <button className="border p-2 bg-green-500 rounded-md px-3 ">
+              <button className="border p-1 bg-green-500 rounded-md px-3 ">
                 Login
               </button>
 
