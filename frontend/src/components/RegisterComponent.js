@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { RxCross2 } from "react-icons/rx";
 
 import axios from "axios";
 
@@ -35,14 +36,20 @@ const Login = () => {
       }
     }
   };
+  const onCrusor = () => {
+    navigate("/");
+  };
   return (
     <>
       <div className=" h-screen  justify-center flex ">
         <div className="  w-[50rem]  h-auto text-xl ">
           <div className=" w-full mt-[3rem]">
-            <div className=" mt-6 pl-[4rem] text-3xl ">
-              Welcome to Blog Website
+            <div className="flex justify-end mt-[1rem] mx-[1rem]">
+              <button onClick={onCrusor}>
+                <RxCross2 size={25} />
+              </button>
             </div>
+            <div className=" mt-6 pl-[4rem] text-3xl ">Register</div>
 
             <form
               className="flex flex-col  gap-3 mt-5 px-[4rem]   "

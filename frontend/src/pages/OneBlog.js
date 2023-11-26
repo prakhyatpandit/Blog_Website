@@ -9,8 +9,7 @@ const OneBlog = () => {
   const data = location.state;
   const navigate =useNavigate()
 
-console.log(data)
-
+console.log(data.image)
 
 
 
@@ -48,7 +47,6 @@ const handleDelete = async (id) => {
     }
   };
 
-  console.log(data);
 
   return (
     <div className>
@@ -70,7 +68,7 @@ const handleDelete = async (id) => {
             </div>
 
             <div className="italic mt-[1rem] ">{data.detail}</div>
-            {console.log(data)}
+
           </div>
           <div className="flex flex-col">
             <button

@@ -1,12 +1,10 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import axios from "axios";
-import {useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 
 const AddNewBlogs = () => {
   const navigate = useNavigate();
-
 
   const [header, setHeader] = useState("");
   const [detail, setDetail] = useState("");
@@ -17,79 +15,73 @@ const AddNewBlogs = () => {
     navigate("/");
   };
 
-
   // submit the form
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
+  //   const handleSubmit = async (e) => {
+  //     e.preventDefault();
 
-//     if (!header || !detail) {
-//       alert("All field are must");
-//     } else {
-//       try {
-//         const response = await axios.post("http://localhost:8000/upload", {
-//           header,
-//           detail,
-//           image,
-//         });
-// navigate('/')
-//       } catch (error) {
-//         console.log(error);
-//       }
-//     }
+  //     if (!header || !detail) {
+  //       alert("All field are must");
+  //     } else {
+  //       try {
+  //         const response = await axios.post("http://localhost:8000/upload", {
+  //           header,
+  //           detail,
+  //           image,
+  //         });
+  // navigate('/')
+  //       } catch (error) {
+  //         console.log(error);
+  //       }
+  //     }
 
-//   };
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  //   };
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  if (!header || !detail || !image) {
-    alert('All fields are required');
-  } else {
-    try {
-      const formData = new FormData();
-      formData.append('image', image);
-      formData.append('header', header);
-      formData.append('detail', detail);
+    if (!header || !detail || !image) {
+      alert("All fields are required");
+    } else {
+      try {
+        const formData = new FormData();
+        formData.append("image", image);
+        formData.append("header", header);
+        formData.append("detail", detail);
 
-      const response = await axios.post('http://localhost:8000/add', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+        const response = await axios.post(
+          "http://localhost:8000/add",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
 
-      console.log(response.data);
-      // Navigate or perform additional actions after successful submission
-      navigate('/');
-    } catch (error) {
-      console.error('Error submitting form:', error);
+        console.log(response.data);
+        // Navigate or perform additional actions after successful submission
+        navigate("/");
+      } catch (error) {
+        console.error("Error submitting form:", error);
+      }
     }
-  }
-};
+  };
 
-
-
-
-
-
-  
-  
   const handleImageChange = (e) => {
-    const selectedImage = e.target.files[0]
-    
-    console.log(e.target.files[0])
-    setImage(e.target.files[0])
-// const reader = new FileReader()
-// reader.readAsDataURL(e.target.files[0]);
-// reader.onload=()=>{
-//   setImage(reader.result)
-//   console.log(reader.result)
-// }
-// reader.onerror=error=>{
-//   console.log(error)
-// }
+    const selectedImage = e.target.files[0];
 
-
-};
-
+    console.log(e.target.files[0]);
+    setImage(e.target.files[0]);
+    // const reader = new FileReader()
+    // reader.readAsDataURL(e.target.files[0]);
+    // reader.onload=()=>{
+    //   setImage(reader.result)
+    //   console.log(reader.result)
+    // }
+    // reader.onerror=error=>{
+    //   console.log(error)
+    // }
+  };
 
   return (
     <>
@@ -101,7 +93,9 @@ const handleSubmit = async (e) => {
           </button>
         </div>
 
-        <div className="text-center text-xl mb-[1rem] font-bold">Add new blogs</div>
+        <div className="text-center text-xl mb-[1rem] font-bold">
+          Add new blogs
+        </div>
         {/* Form */}
         <form
           onSubmit={handleSubmit}
@@ -123,14 +117,11 @@ const handleSubmit = async (e) => {
           <div className="flex flex-col">
             <span>Upload photo </span>
             <input type="file" name="image" onChange={handleImageChange} />
-            {image===""|| image===null ? "":
+            {/* {image===""|| image===null ? "":
   <img width={100} height={100} src={image} />
-}
+} */}
 
-
-            <button
-              className="border rounded-[20px] p-2 mt-[2rem] bg-green-600 text-white hover:cursor-pointer hover:bg-green-800 hover:text-gray-200 "
-            >
+            <button className="border rounded-[20px] p-2 mt-[2rem] bg-green-600 text-white hover:cursor-pointer hover:bg-green-800 hover:text-gray-200 ">
               Add
             </button>
           </div>

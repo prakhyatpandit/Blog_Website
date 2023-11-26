@@ -28,8 +28,7 @@ const Navbar = () => {
         <div className="bg-gray-400 p-2 rounded-full px-3 text-white">
           <button className="flex gap-3 items-center" onClick={handleLogin}>
         
-          {!user ? <div>{user}</div> : <div>Login</div>}
-
+Login
 
 
             <FaUserAlt size={13} />
@@ -42,6 +41,9 @@ const Navbar = () => {
         {/* Login Section */}
         {/* <div> Login</div> */}
       </div>
+     <div>
+
+     </div>
     </>
   );
 };
