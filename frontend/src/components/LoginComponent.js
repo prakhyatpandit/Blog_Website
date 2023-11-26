@@ -17,23 +17,35 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8000/login", {
-        email,
-        password,
-      });
+      if(!email || !password) {
+        alert("you must provide email and password")
+      }
+      else{
 
-      const userInfo = response.data.name;
+        const response = await axios.post("http://localhost:8000/login", {
+          email,
+          password,
+        });
+        
+        
+        const userInfo = response.data.name;
 
-      setUser(userInfo);
-      
-      alert("Login successfully");
-      navigate("/");
-      // console.log(userInfo.data.name)
-      // console.log(user)
-      // console.log(userInfo.name)
-    } catch (e) {
-      alert("not OK");
-      setEmail("");
+        if(!userInfo){
+          alert("invalid email or password")
+        }
+        
+        setUser(userInfo.name);
+        
+        
+        alert("Login successfully");
+        navigate("/");
+      }
+        // console.log(userInfo.data.name)
+        // console.log(user)
+        // console.log(userInfo.name)
+      } catch (e) {
+console.log(e)     
+   setEmail("");
       setPassword("");
     }
   };

@@ -17,18 +17,37 @@ export const registerUser = async (req, res) => {
 export const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
+  // Check if email is provided
+  if (!email) {
+    res.json("Error: Email is required");
+    return;
+  }
+
+  // Check if password is provided
+  if (!password) {
+    res.json("Error: Password is required");
+    return;
+  }
+
   try {
     const user = await User.findOne({ email });
-
-    if (user.password == password) {
-      res.json(user);
+    if (!user) {
+      res.json("Error: User not found");
+      return;
     } else {
-      res.json("check email or password ");
+      if (password === user.password) {
+        res.json(user);
+      } else {
+        res.json("Error: Incorrect password");
+      }
     }
   } catch (error) {
-    res.json(error);
+    // You should handle errors here
+    console.error(error);
+    res.json("Error: Something went wrong");
   }
 };
+
 
 // For Adding the New BLog
 export const addBlog = async (req, res) => {
