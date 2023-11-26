@@ -23,7 +23,7 @@ const Edit = () => {
     // Set initial state when the component mounts
     setHeader(data.header || "");
     setDetail(data.detail || "");
-  }, [data.header, data.detail]);
+  }, [data.header, data.detail,data.image]);
 
   const handleAddnew = () => {};
 
@@ -35,7 +35,7 @@ const Edit = () => {
       alert("All field are must");
     } else {
       try {
-        const dataa = { header, detail };
+        const dataa = { header, detail,image };
 
         const response = await axios.put(`http://localhost:8000/edit/${id}`, dataa);
         

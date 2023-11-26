@@ -2,13 +2,49 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
-const app = express();
-const PORT = 8000;
-app.use(cors());
-app.use(express.json());
+import multer from 'multer'
 import Blog from "./model/newblogSchema.js";
 import User from "./model/userSchema.js";
+const PORT = 8000;
+const app = express();
+app.use(cors());
+app.use(express.json());
 app.use(bodyParser.json());
+
+
+// Adding the image
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "../frontend/src/images/"); // Set your desired upload directory
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
+
+// Other middleware and routes...
+
+app.post('/add', upload.single('image'), async (req, res) => {
+  // Access the uploaded file through req.file
+  const imagePath = req.file.path;
+  const imageeName = req.file.filename;
+
+  try {
+    // Perform your database operation
+    await Blog.create({ image: imageeName,header:req.body.header, detail:req.body.detail });
+
+    // Respond to the client after the database operation is successful
+    res.json({ imagePath, message: 'Upload successful' });
+  } catch (error) {
+    // Handle any errors that occur during the database operation
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
 
 
 
@@ -23,17 +59,10 @@ try {
 
 // Adding  The new Blog
 
-app.post("/add",async(req,res)=>{
-  try{
 
-    const {header,detail,image}=req.body;
-    const newBlog = await Blog.create({header,detail})
-res.json(newBlog)
-  }
-  catch(error){
-    res.json(error)
-  }
-})
+
+
+
 
 // Register
 app.post("/register", async (req, res) => {
@@ -68,27 +97,6 @@ app.post("/login", async (req, res) => {
 
 
 
-// for image Add 
-          
-// cloudinary.config({ 
-//   cloud_name: 'drq23c06j', 
-//   api_key: '188456478845913', 
-//   api_secret: 'BgU-WVAPcu1H8QsdhtRBpHp-zCY' 
-// });
-
-// app.post("/add", async (req, res) => {
-//   const { header, detail,image } = req.body;
-//   try {
-//     const file=req.files.image
-    
-//    await cloudinary.uploader.upload(file.tempFilePath,(err,result)=>{
-// res.json(result)    })
-//     // const userDoc = await Blog.create({ header, detail,image:imageResult.secure_url });
-//     // res.json(userDoc);
-//   } catch (error) {
-//     res.json(error);
-//   }
-// });
 
 // for Getting all  the BLog
 

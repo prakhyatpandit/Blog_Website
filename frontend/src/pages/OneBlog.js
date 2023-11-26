@@ -56,7 +56,9 @@ const handleDelete = async (id) => {
 
       <div className="  flex justify-center  h-[40rem] sm:h-[50rem] mt-[2rem]  ">
         <div className=" sm:w-[50%] w-[70%] xl:w-[50rem] ">
-          <div className="h-[70%] border"></div>
+          <div className=" h-[70%] border">
+            <img src={require(`../images/${data.image}`)} className="h-full"/>
+          </div>
           <div className="flex justify-between gap-[3rem] mx-[2rem]">
             <span>Name of User</span>
             <span>Date</span>

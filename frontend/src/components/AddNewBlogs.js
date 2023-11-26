@@ -19,33 +19,64 @@ const AddNewBlogs = () => {
 
 
   // submit the form
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
 
-    if (!header || !detail) {
-      alert("All field are must");
-    } else {
-      try {
-        const response = await axios.post("http://localhost:8000/add", {
-          header,
-          detail,
-          image,
-        });
-navigate('/')
-      } catch (error) {
-        console.log(error);
-      }
+//     if (!header || !detail) {
+//       alert("All field are must");
+//     } else {
+//       try {
+//         const response = await axios.post("http://localhost:8000/upload", {
+//           header,
+//           detail,
+//           image,
+//         });
+// navigate('/')
+//       } catch (error) {
+//         console.log(error);
+//       }
+//     }
+
+//   };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (!header || !detail || !image) {
+    alert('All fields are required');
+  } else {
+    try {
+      const formData = new FormData();
+      formData.append('image', image);
+      formData.append('header', header);
+      formData.append('detail', detail);
+
+      const response = await axios.post('http://localhost:8000/add', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+      console.log(response.data);
+      // Navigate or perform additional actions after successful submission
+      navigate('/');
+    } catch (error) {
+      console.error('Error submitting form:', error);
     }
+  }
+};
 
-  };
+
+
 
 
 
   
   
   const handleImageChange = (e) => {
+    const selectedImage = e.target.files[0]
     
     console.log(e.target.files[0])
+    setImage(e.target.files[0])
 // const reader = new FileReader()
 // reader.readAsDataURL(e.target.files[0]);
 // reader.onload=()=>{
@@ -91,7 +122,7 @@ navigate('/')
           ></textarea>
           <div className="flex flex-col">
             <span>Upload photo </span>
-            <input type="file" name="file" onChange={handleImageChange} />
+            <input type="file" name="image" onChange={handleImageChange} />
             {image===""|| image===null ? "":
   <img width={100} height={100} src={image} />
 }

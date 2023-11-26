@@ -18,8 +18,6 @@ const BlogCart = () => {
   const [cartData, setcartData] = useState([]);
 
 
-  // console.log(cartData)
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -73,6 +71,8 @@ const BlogCart = () => {
     navigate("/blogs", { state: items });
   };
 
+
+
   
 
   return (
@@ -84,7 +84,15 @@ const BlogCart = () => {
             className="flex flex-col border border-gray-400  shadow-gray-400 shadow-md rounded-md p-1 w-[19rem] sm:w-[23rem] "
           >
             {/* image section */}
-            <div className="h-[14rem]">Image Section</div>
+            <div className="h-[18rem]">
+
+            <img src={require(`../images/${items.image}`)} className="h-full  w-full"/>
+            
+
+
+
+          
+            </div>
             {/*  Section */}
             <div>
               {/* author */}
