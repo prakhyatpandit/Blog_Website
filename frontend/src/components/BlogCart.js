@@ -19,6 +19,7 @@ const BlogCart = () => {
   const [cartData, setcartData] = useState([]);
   const { user, setUser } = useContext(UserContext);
   const [show,hide] =useState(user)
+  const {isuser,setIsuser}=useContext(UserContext)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -95,11 +96,11 @@ const BlogCart = () => {
                   
 
 
+<h1>
+Anonymous</h1>
 
-{show? <h1 className="text-sm ">
-{user}
-</h1> :   <h1> Anonymous
-  </h1>}                  
+  
+          
                 </div>
               </div>
               {/* {console.log(items.detail)} */}

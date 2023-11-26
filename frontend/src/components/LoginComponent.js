@@ -8,6 +8,7 @@ const Login = () => {
   const navigate = useNavigate();
   // For getting the user
   const { setUser } = useContext(UserContext);
+  const { isuser, setIsuser } = useContext(UserContext);
 
   const [email, setEmail] = useState("");
 
@@ -17,35 +18,32 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      if(!email || !password) {
-        alert("you must provide email and password")
-      }
-      else{
-
+      if (!email || !password) {
+        alert("you must provide email and password");
+      } else {
         const response = await axios.post("http://localhost:8000/login", {
           email,
           password,
         });
-        
-        
+
         const userInfo = response.data.name;
 
-        if(!userInfo){
-          alert("invalid email or password")
+        if (!userInfo) {
+          alert("invalid email or password");
         }
-        
-        setUser(userInfo.name);
-        
-        
+
+        setUser(userInfo);
+        setIsuser(!isuser);
+
         alert("Login successfully");
         navigate("/");
       }
-        // console.log(userInfo.data.name)
-        // console.log(user)
-        // console.log(userInfo.name)
-      } catch (e) {
-console.log(e)     
-   setEmail("");
+      // console.log(userInfo.data.name)
+      // console.log(user)
+      // console.log(userInfo.name)
+    } catch (e) {
+      console.log(e);
+      setEmail("");
       setPassword("");
     }
   };

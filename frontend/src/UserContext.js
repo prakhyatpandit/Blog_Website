@@ -11,6 +11,7 @@ export function UserContextProvider({ children }) {
 
   // for one particular blogs
   const [oneBlog, setOneBlog] = useState(null);
+  const [isuser,setIsuser]=useState(false)
 
   return (
     <>
@@ -20,7 +21,9 @@ export function UserContextProvider({ children }) {
           blogDocs,
           setBlogDocs,
           user,
-          setUser
+          setUser,
+          isuser,
+          setIsuser,
     
         }}
       >
