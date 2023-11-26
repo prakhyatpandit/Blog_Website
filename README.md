@@ -3,11 +3,16 @@
  1. clone this git hub rep as : git colne https://github.com/prakhyatpandit/Blog_Website.git
  2.  install the required node modules
 
-     i) For frontend : 1. Go to the frontend file as :  cd frontend
-                    2. then install rquired node modules and pacakage : npm i 
+    
+ i)  Go to the frontend file as :  cd frontend
 
-  ii) For Backend : 1. Go to the Backend file as : cd backend 
-                    2. then install required module and pacakges as : npm i 
+ ii) then install rquired node modules and pacakage : npm i 
+
+
+ iii) For Backend :  Go to the Backend file as : cd backend 
+
+ 
+iv)  then install required module and pacakges as : npm i 
                     
 
 # For Running of this project 
